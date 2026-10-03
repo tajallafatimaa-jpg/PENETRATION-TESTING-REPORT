@@ -18,7 +18,7 @@
 | **Sanitization** | Live IPs, domains, emails and other identifiers replaced with documentation-safe values |
 | **Report Status** | Sanitized submission-ready draft |
 
-> 💡 **Authorization & Safety Notice:**
+> 💡 **Authorization & Safety Notice:**  
 > All reconnaissance and scanning activities described in this report are presented as authorized educational exercises. The report intentionally uses documentation-only IP ranges and synthetic identifiers so that the final document does not expose live infrastructure details. Prepared for educational and portfolio use.
 
 ---
@@ -97,7 +97,7 @@ The footprinting phase utilized 6 core Kali Linux tools to combine registration 
 whois example-lab.invalid
 ```
 
-![WHOIS Terminal Output](images/whois_output.png)
+![WHOIS Terminal Output](whois.png)
 
 * **Sanitized Observation:** Demonstrated that WHOIS exposes registrar details, domain status, and name-server configurations.
 * **Security Relevance:** Provides structural and administrative context regarding target domain ownership.
@@ -110,7 +110,7 @@ whois example-lab.invalid
 whatweb example-lab.invalid
 ```
 
-![WhatWeb Terminal Output](images/whatweb_output.png)
+![WhatWeb Terminal Output](whatweb.png)
 
 * **Sanitized Observation:** Identified web server components, CMS frameworks, download handlers, and JavaScript libraries.
 * **Security Relevance:** Technology identification assists in prioritizing software update requirements and defensive patch management.
@@ -123,7 +123,7 @@ whatweb example-lab.invalid
 nslookup example-lab.invalid
 ```
 
-![Nslookup Terminal Output](images/nslookup_output.png)
+![Nslookup Terminal Output](nslookup.png)
 
 * **Sanitized Observation:** Resolved the target domain to a documentation-safe IP (`192.0.2.10`).
 
@@ -135,7 +135,7 @@ nslookup example-lab.invalid
 curl -I https://example-lab.invalid
 ```
 
-![Curl Terminal Output](images/curl_output.png)
+![Curl Terminal Output](curl.png)
 
 * **Sanitized Observation:** Returned HTTP status codes, web server headers, caching parameters, and active API endpoints.
 
@@ -147,7 +147,7 @@ curl -I https://example-lab.invalid
 wafw00f example-lab.invalid
 ```
 
-![Wafw00f Terminal Output](images/wafw00f_output.png)
+![Wafw00f Terminal Output](wafw00f.png)
 
 * **Sanitized Observation:** Detected active protection mechanisms (e.g., ModSecurity).
 
@@ -159,7 +159,7 @@ wafw00f example-lab.invalid
 dnsrecon -d example-lab.invalid
 ```
 
-![DNSRecon Terminal Output](images/dnsrecon_output.png)
+![DNSRecon Terminal Output](dnsrecon.png)
 
 * **Sanitized Observation:** Successfully enumerated SOA, NS, A, TXT, and SRV records.
 
@@ -193,6 +193,9 @@ The scan detected 1 active host (`192.0.2.25`) with three open TCP services:
 ### 6.3 Interpretation
 
 Active ports 135, 139, and 445 indicate standard Windows network endpoints. Their detection highlights areas for administrative configuration review and service exposure auditing.
+
+---
+
 > 🛡️ **Safety Boundary:** No exploitation, password attacks, or unauthorized access attempts were conducted during this exercise.
 
 ---
@@ -260,3 +263,4 @@ nmap -sn 192.0.2.0/24
 ### Appendix B – Sanitization Note
 
 All target identifiers, domains, and IP addresses have been converted to synthetic documentation values (`example-lab.invalid` and `192.0.2.0/24`).
+
